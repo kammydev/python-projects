@@ -25,25 +25,30 @@ def hangMan():
 
     # Letting user know of used letters
     # " ".join(['a' , 'b', 'cd']) ---> 'a b cd'
-        print("You have used these letters: " " ".join(usedLetters))
+        print("You have used these letters: " ," ".join(usedLetters)) 
 
     # what the current word is ie. W - R D
         wordList = [letter if letter in usedLetters else '-' for letter in word]
         print('Current word: ' , ' '.join(wordList))
 
-        userLetter = input("Guess a letter: ").upper()
+        userLetter = input("Guess a letter: \n").upper() 
+        print (" ")
 
         if userLetter in alphabet - usedLetters:
-            usedLetters.add(userLetter)
+
             if userLetter in wordLetters:
+                usedLetters.add(userLetter)
                 wordLetters.remove(userLetter)
-                print(' ')
-    
-            elif userLetter in usedLetters:
-                print("You have already used that letter. Please try again")
 
             else:
-                print("Invalid character")
+                print('Incorrect guess! Try again \n') 
+    
+        elif userLetter in usedLetters:
+            print(" You have already used that letter. Please try again")
 
+        else:
+            print("Invalid character")
+
+    print("You have won the game!!!")
 
 hangMan()
