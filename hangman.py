@@ -20,8 +20,11 @@ def hangMan():
     # Keep track of what the user has guessed
     usedLetters = set()
 
+    # add lives variable
+    lives = 6
+
     # Getting user input
-    while len(wordLetters) > 0:
+    while len(wordLetters) > 0 and lives > 0:
 
     # Letting user know of used letters
     # " ".join(['a' , 'b', 'cd']) ---> 'a b cd'
@@ -41,14 +44,16 @@ def hangMan():
                 wordLetters.remove(userLetter)
 
             else:
-                print('Incorrect guess! Try again \n') 
+                lives = lives - 1
+                print(f'Incorrect guess! Try again. You have {lives} lives left \n')
+    
     
         elif userLetter in usedLetters:
             print(" You have already used that letter. Please try again")
 
-        else:
-            print("Invalid character")
-
-    print("You have won the game!!!")
+    if lives == 0:
+        print(f"You died, sorry!!! The word was : {word}")
+    else:
+        print(f"You have won the game!!! You guessed the word: {word}")
 
 hangMan()
