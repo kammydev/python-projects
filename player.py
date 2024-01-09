@@ -1,12 +1,13 @@
 import math 
 import random
 
+    # initialize the player class
 class player:
     def __init__(self, letter):
         # Letter is X or O
         self.letter = letter
 
-    def getMove(self , game):
+    def getMove(self , Game):
         pass
 
 class RandomComputerPlayer(player):
@@ -36,5 +37,3 @@ class HumanPlayer(player):
                 print("Invalid square. Try again.")
 
         return val
-
-

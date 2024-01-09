@@ -25,8 +25,8 @@ class TicTacToe:
         return self.board.count(' ')
     
     def makeMove(self, square, letter):
-        if self.board(square) == ' ':
-            self.board = letter
+        if self.board[square] == ' ':
+            self.board[square] = letter
             if self.winner(square, letter):
                 self.CurrentWinner = letter
             return True
