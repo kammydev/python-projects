@@ -1,21 +1,34 @@
 from player import HumanPlayer, RandomComputerPlayer
-
+# Initialize and define class TicTacToe
 class TicTacToe:
+
+    # Creating the board object
     def __init__(self):
         self.board = [' ' for _ in range(9)] 
         self.CurrentWinner = None
 
+    # printing the board
     def printboard(self):
+
+        # print each row space of the board using the for loop
         for row in [self.board[i*3:(i+1)*3] for i in range(3)]:
+
+            # the .join function concatenates the elements of the iteration list with the ' | ' separator
             print('| ' + ' | ' .join(row) + ' |')
 
     @staticmethod
     def printBoardNums():
+
+        # print each row number of the board using the for loop
         numberBoard = [[str(i) for i in range(j*3, (j+1)*3)] for j in range(3)]
         for row in numberBoard:
+
+            # the .join function concatenates the elements of the iteration list with the ' | ' separator
             print('| ' + ' | ' .join(row) + ' |')
 
     def availableMoves(self):
+
+        # iterate over the board and return a list of available spots
         return [i for i, spot in enumerate(self.board) if spot == ' ']
     
     def emptysquares(self):
