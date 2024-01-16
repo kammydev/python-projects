@@ -1,7 +1,9 @@
 from player import HumanPlayer, RandomComputerPlayer
+
+
 # Initialize and define class TicTacToe
 class TicTacToe:
-
+    
     # Creating the board object
     def __init__(self):
         self.board = [' ' for _ in range(9)] 
@@ -49,7 +51,7 @@ class TicTacToe:
             return True
         return False
     
-    # Initialize the winner objective
+    # Initialize the winner object
     def winner(self, square, letter):
         rowInd = square // 3
         row = self.board[rowInd*3 : (rowInd + 1)*3]
