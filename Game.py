@@ -1,9 +1,9 @@
 from player import HumanPlayer, RandomComputerPlayer
 
 
-# Initialize and define class TicTacToe
+    # Initialize and define class TicTacToe
 class TicTacToe:
-    
+
     # Creating the board object
     def __init__(self):
         self.board = [' ' for _ in range(9)] 
