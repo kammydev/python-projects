@@ -8,35 +8,39 @@ class TicTacToe:
         self.CurrentWinner = None
 
     # printing the board
+    # print each row space of the board using the for loop
+    # the .join function concatenates the elements of the iteration list with the ' | ' separator
     def printboard(self):
-
-        # print each row space of the board using the for loop
         for row in [self.board[i*3:(i+1)*3] for i in range(3)]:
-
-            # the .join function concatenates the elements of the iteration list with the ' | ' separator
             print('| ' + ' | ' .join(row) + ' |')
 
     @staticmethod
-    def printBoardNums():
 
-        # print each row number of the board using the for loop
+    # print each row number of the board using the for loop
+    # the .join function concatenates the elements of the iteration list with the ' | ' separator
+    def printBoardNums():
         numberBoard = [[str(i) for i in range(j*3, (j+1)*3)] for j in range(3)]
         for row in numberBoard:
-
-            # the .join function concatenates the elements of the iteration list with the ' | ' separator
             print('| ' + ' | ' .join(row) + ' |')
 
+    # iterate over the board and return a list of available spots
     def availableMoves(self):
-
-        # iterate over the board and return a list of available spots
         return [i for i, spot in enumerate(self.board) if spot == ' ']
-    
+
+    # Return empty squares on the board
     def emptysquares(self):
         return ' ' in self.board
     
+    # Count empty squares on the board
     def numEmptySquares(self):
         return self.board.count(' ')
-    
+
+    # Initialize function makeMove
+    # Check if the board is empty
+    # If it is, assign the input to the selected space
+    # if there is already a winner
+    # Assign the winner and declare the winner
+    # If not, return false
     def makeMove(self, square, letter):
         if self.board[square] == ' ':
             self.board[square] = letter
@@ -45,6 +49,7 @@ class TicTacToe:
             return True
         return False
     
+    # Initialize the winner objective
     def winner(self, square, letter):
         rowInd = square // 3
         row = self.board[rowInd*3 : (rowInd + 1)*3]
